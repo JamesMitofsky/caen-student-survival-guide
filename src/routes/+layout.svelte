@@ -1,33 +1,31 @@
 <script>
-	import { onMount } from 'svelte';
 	import '../app.css';
-
-	onMount(() => {
-		//  Google tag (gtag.js) - Google Analytics
-
-		const hostname = location.hostname;
-
-		if (hostname.startsWith('deploy-preview') || hostname.includes('--')) {
-			console.log('Deployment preview on Netlify: skipped running Google Analytics.');
-		} else if (hostname === 'localhost') {
-			console.log('Local development: skipped running Google Analytics.');
-		} else {
-			const script = document.createElement('script');
-			script.async = true;
-			script.src = 'https://www.googletagmanager.com/gtag/js?id=G-54Q685VHKL';
-			script.onload = () => {
-				// @ts-ignore
-				window.dataLayer = window.dataLayer || [];
-				function gtag() {
-					// @ts-ignore
-					dataLayer.push(arguments);
-				}
-				gtag('js', new Date());
-				gtag('config', 'G-54Q685VHKL');
-			};
-			document.head.appendChild(script);
-		}
-	});
 </script>
+
+<svelte:head>
+	{#if location.hostname.startsWith('deploy-preview') || location.hostname.includes('--')}
+		<script>
+			console.log(
+				'Deployment preview on Netlify or hostname contains "--": skipped running Google Analytics.'
+			);
+		</script>
+	{:else if location.hostname === 'localhost'}
+		<script>
+			console.log('Local development: skipped running Google Analytics.');
+		</script>
+	{:else}
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-54Q685VHKL"></script>
+
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-54Q685VHKL');
+		</script>
+	{/if}
+</svelte:head>
 
 <slot />
