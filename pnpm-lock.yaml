@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  netlify-identity-widget:
+    specifier: ^1.9.2
+    version: 1.9.2
+
 devDependencies:
   '@playwright/test':
     specifier: ^1.28.1
@@ -17,6 +22,9 @@ devDependencies:
   '@types/gtag.js':
     specifier: ^0.0.13
     version: 0.0.13
+  '@types/netlify-identity-widget':
+    specifier: ^1.9.3
+    version: 1.9.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.45.0
     version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.47.0)(typescript@5.1.6)
@@ -514,6 +522,10 @@ packages:
 
   /@types/json-schema@7.0.12:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
+    dev: true
+
+  /@types/netlify-identity-widget@1.9.3:
+    resolution: {integrity: sha512-xAzPO2TM8Z+gVZ/3wXUM5WIKWEE0TG+uD6u/4Dq0tgA+bwrb+qyIqhlaIyJZcXN6MienvYxUH3DKUSYb8evfYA==}
     dev: true
 
   /@types/node@20.5.1:
@@ -1655,6 +1667,10 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /netlify-identity-widget@1.9.2:
+    resolution: {integrity: sha512-IbS1JHhs7BflCCvp3C9f6tmNSZqbyBhZ4Gs5+Qxt4IlPybTOVv0PqJ4TAsA7uxh1R+oXOAmk0OOMAkEaPYeCtA==}
+    dev: false
 
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}

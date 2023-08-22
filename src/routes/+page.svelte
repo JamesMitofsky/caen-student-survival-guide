@@ -1,27 +1,21 @@
 <script>
-	// Following these instructions: https://decapcms.org/docs/add-to-your-site/
-	function runNetlifyIdentity() {
-		// @ts-ignore
-		if (window.netlifyIdentity) {
-			// @ts-ignore
-			window.netlifyIdentity.on('init', (user) => {
-				if (!user) {
-					// @ts-ignore
-					window.netlifyIdentity.on('login', () => {
-						document.location.href = '/admin/';
-					});
-				}
-			});
-		}
-	}
-</script>
+	import netlifyIdentity from 'netlify-identity-widget';
+	import { onMount } from 'svelte';
 
-<svelte:head>
-	<script
-		src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-		on:load={runNetlifyIdentity}
-	></script>
-</svelte:head>
+	// Following these instructions: https://decapcms.org/docs/add-to-your-site/
+
+	onMount(() => {
+		netlifyIdentity.init();
+
+		netlifyIdentity.on('init', (user) => {
+			if (!user) {
+				netlifyIdentity.on('login', () => {
+					document.location.href = '/admin/';
+				});
+			}
+		});
+	});
+</script>
 
 <h1 class="text-3xl font-bold underline">Hello Tailwind!</h1>
 <h2>Welcome to SvelteKit</h2>
