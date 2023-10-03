@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/"
+  to = "https://bit.ly/James-Caen-Student-Survival-Guide"
+  force = true # COMMENT: ensure that we always redirect
